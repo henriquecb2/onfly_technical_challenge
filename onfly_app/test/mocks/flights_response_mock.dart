@@ -1,0 +1,48 @@
+import 'package:onfly_app/src/domain/models/flight_model.dart';
+
+var mockedFlights = [
+      const Flight(
+        id: 'A654',
+        airline: 'Azul',
+        from: 'Rio de Janeiro - GIG',
+        to: 'Sao Paulo - GRU',
+        departure: '14/03/2024 - 13h00',
+        arrival: '14/03/2024 - 14h10',
+        duration: '01h10',
+        price: 'R\$254.50',
+        gate: '07',
+      ),
+      const Flight(
+        id: 'A789',
+        airline: 'Azul',
+        from: 'Sao Paulo - GRU',
+        to: 'Rio de Janeiro - GIG',
+        departure: '24/03/2024 - 17h45',
+        arrival: '24/03/2024 - 18h55',
+        duration: '01h10',
+        price: 'R\$275.00',
+        gate: '07',
+      ),
+      const Flight(
+        id: 'G774',
+        airline: 'Gol',
+        from: 'Belo Horizonte - CNF',
+        to: 'Recife - REC',
+        departure: '17/05/2024 - 13h00',
+        arrival: '17/05/2024 - 15h00',
+        duration: '02h00',
+        price: 'R\$747.00',
+        gate: '21',
+      ),
+      const Flight(
+        id: 'L885',
+        airline: 'Latam',
+        from: 'Recife - REC',
+        to: 'Belo Horizonte - CNF',
+        departure: '27/05/2024 - 05h00',
+        arrival: '17/05/2024 - 07h00',
+        duration: '02h00',
+        price: 'R\$874.27',
+        gate: '30',
+      ),
+    ];

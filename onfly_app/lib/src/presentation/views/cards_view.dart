@@ -22,56 +22,58 @@ class _CardsViewState extends State<CardsView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Meu cartão'),
-      ),
-      body: BlocBuilder<CardCubit, CardState>(
-        builder: (context, state) {
-          if (state is CardLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (state is CardSuccess) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  // Fixed widget
-                  CardInfoWidget(
-                    card: state.card.card,
-                  ),
-                  const SizedBox(height: 16),
-                  const Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: const Text(
-                        'Extrato do cartão',
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Meu cartão'),
+        ),
+        body: BlocBuilder<CardCubit, CardState>(
+          builder: (context, state) {
+            if (state is CardLoading) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (state is CardSuccess) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    // Fixed widget
+                    CardInfoWidget(
+                      card: state.card.card,
+                    ),
+                    const SizedBox(height: 16),
+                    const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: const Text(
+                          'Extrato do cartão',
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  // Scrollable list of cards
-                  Expanded(
-                    child: _buildList(state.card.cardHistoryList),
-                  ),
-                ],
-              ),
-            );
-          } else if (state is CardError) {
-            return Center(
-              child: Text('Error: ${state.error}'),
-            );
-          } else {
-            return const Center(
-              child: Text('Unknown state'),
-            );
-          }
-        },
+                    // Scrollable list of cards
+                    Expanded(
+                      child: _buildList(state.card.cardHistoryList),
+                    ),
+                  ],
+                ),
+              );
+            } else if (state is CardError) {
+              return Center(
+                child: Text('Error: ${state.error}'),
+              );
+            } else {
+              return const Center(
+                child: Text('Unknown state'),
+              );
+            }
+          },
+        ),
       ),
     );
   }
