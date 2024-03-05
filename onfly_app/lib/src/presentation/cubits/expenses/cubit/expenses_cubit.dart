@@ -1,5 +1,3 @@
-import 'package:bloc/bloc.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 
@@ -40,7 +38,8 @@ class ExpensesCubit extends BaseCubit<ExpensesState> {
       final expenses = await _repository.getExpensesPendingSync();
       for (final expense in expenses) {
         try {
-          //await Dio().post('http://localhost:3000/expenses', data: expense.toJson());
+          //Chamada do service para sincronizar a despesa
+          //await _service.saveExpense(expense);
           var updatedExpense = expense.copyWith(isSynced: true);
           await _repository.updateExpense(updatedExpense);
         } catch (e) {

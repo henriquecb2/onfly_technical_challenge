@@ -1,7 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
-import 'package:onfly_app/src/domain/models/flight_model.dart';
+import '../../../../domain/models/flight_model.dart';
 
 import '../../../../domain/models/requests/booked_flights_request.dart';
 import '../../../../domain/repositories/flights_repository.dart';
